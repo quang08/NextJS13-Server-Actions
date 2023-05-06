@@ -1,7 +1,9 @@
 import SubForm from "./SubForm";
 
+//this is a server-renderd page 
+
 export default function Home() {
-  //server action
+  //server action and passing it to a CLIENT component <SubForm/>
   async function myFormProcessor(formData: any) {
     "use server";
     console.log(formData);
