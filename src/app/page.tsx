@@ -1,19 +1,32 @@
-//what if we dont't want to declare this as a client component, but still want to keep the interactivity for the server-side
-//like making a DB request? -> creating a mutation to the DB
-
 export default function Home() {
-  //we define a server-side function (has to be async)
-  async function consoleLog() {
-    "use server"; //only be run on the server and we wont see the log in the inspector since it's sever-side
-    console.log("Hello");
-  }
-
   return (
-    //we don't use the client onSubmit event handler but pass it an action - this is a special property that takes a function and will provide the data from the form to run server side code
-    <div className="bg-black h-screen w-screen">
-      <form action={consoleLog}>
-        <button>console log</button>
-      </form>
-    </div>
+    <main className="h-screen w-screen flex justify-center items-center">
+      <div className="h-full w-1/2 md:max-w-3/4 flex flex-col justify-center items-center gap-4">
+        <h1 className="text-4xl font-bold">Newsletter</h1>
+        <form
+          autoComplete="off"
+          className="flex flex-col w-3/4 md:max-w-lg gap-6"
+        >
+          <input
+            className="p-1 rounded-md bg-gray-100 text-black"
+            type="text"
+            placeholder="Name"
+            name="name"
+          />
+          <input
+            className="p-1 rounded-md bg-gray-100 text-black"
+            type="email"
+            placeholder="Email"
+            name="email"
+          />
+          <button
+            type="submit"
+            className="bg-blue-600 p-2 rounded-md cursor-pointer hover:bg-blue-500"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </main>
   );
 }
